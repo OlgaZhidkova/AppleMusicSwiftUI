@@ -1,28 +1,31 @@
 //
-//  ContentView.swift
+//  TabBar.swift
 //  AppleMusicSwiftUI
 //
-//  Created by Ольга on 19.01.2022.
+//  Created by Ольга on 28.01.2022.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct TabBar: View {
     var body: some View {
         TabView {
-            LibraryView()
+            
+                LibraryView()
+               
+            
             .tabItem {
                 Image("music")
                 Text("Медиатека")
             }
             
-            Text("Радио")
+            Text("Здесь будет Радио")
             .tabItem {
                 Image(systemName: "dot.radiowaves.left.and.right")
                 Text("Радио")
             }
             
-            Text("Поиск")
+            Text("Здесь будет Поиск")
             .tabItem {
                 Image(systemName: "magnifyingglass")
                 Text("Поиск")
@@ -32,9 +35,8 @@ struct ContentView: View {
     }
 }
 
-
-struct ContentView_Previews: PreviewProvider {
+struct TabBar_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        TabBar()
     }
 }
