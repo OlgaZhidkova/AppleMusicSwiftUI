@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77D5E93727A341E700B1E20B /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D5E93627A341E700B1E20B /* TabBar.swift */; };
+		77D5E93A27A3434E00B1E20B /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D5E93927A3434E00B1E20B /* PlayerView.swift */; };
+		77D5FAEF2798AF730062B09E /* LibraryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D5FAEE2798AF730062B09E /* LibraryListView.swift */; };
+		77D5FAF12799858E0062B09E /* OptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D5FAF02799858E0062B09E /* OptionModel.swift */; };
+		77D5FAF32799BF960062B09E /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D5FAF22799BF960062B09E /* OptionCell.swift */; };
 		77DF05782798445000E12EFA /* AppleMusicSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DF05772798445000E12EFA /* AppleMusicSwiftUIApp.swift */; };
 		77DF057A2798445000E12EFA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DF05792798445000E12EFA /* ContentView.swift */; };
 		77DF057C2798445400E12EFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77DF057B2798445400E12EFA /* Assets.xcassets */; };
@@ -15,6 +20,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		77D5E93627A341E700B1E20B /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		77D5E93927A3434E00B1E20B /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		77D5FAEE2798AF730062B09E /* LibraryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryListView.swift; sourceTree = "<group>"; };
+		77D5FAF02799858E0062B09E /* OptionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionModel.swift; sourceTree = "<group>"; };
+		77D5FAF22799BF960062B09E /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
 		77DF05742798445000E12EFA /* AppleMusicSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleMusicSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77DF05772798445000E12EFA /* AppleMusicSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicSwiftUIApp.swift; sourceTree = "<group>"; };
 		77DF05792798445000E12EFA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,6 +44,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		77D5E8F827A33C6B00B1E20B /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				77DF05872798495D00E12EFA /* LibraryView.swift */,
+				77D5FAEE2798AF730062B09E /* LibraryListView.swift */,
+				77D5FAF02799858E0062B09E /* OptionModel.swift */,
+				77D5FAF22799BF960062B09E /* OptionCell.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		77D5E93527A3414000B1E20B /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				77DF05792798445000E12EFA /* ContentView.swift */,
+				77D5E93627A341E700B1E20B /* TabBar.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		77D5E93827A342A000B1E20B /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				77D5E93927A3434E00B1E20B /* PlayerView.swift */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
 		77DF056B2798445000E12EFA = {
 			isa = PBXGroup;
 			children = (
@@ -54,8 +92,9 @@
 			isa = PBXGroup;
 			children = (
 				77DF05772798445000E12EFA /* AppleMusicSwiftUIApp.swift */,
-				77DF05792798445000E12EFA /* ContentView.swift */,
-				77DF05872798495D00E12EFA /* LibraryView.swift */,
+				77D5E93527A3414000B1E20B /* MainView */,
+				77D5E8F827A33C6B00B1E20B /* Library */,
+				77D5E93827A342A000B1E20B /* Player */,
 				77DF057B2798445400E12EFA /* Assets.xcassets */,
 				77DF057D2798445400E12EFA /* Preview Content */,
 			);
@@ -140,9 +179,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77D5E93727A341E700B1E20B /* TabBar.swift in Sources */,
 				77DF057A2798445000E12EFA /* ContentView.swift in Sources */,
+				77D5FAEF2798AF730062B09E /* LibraryListView.swift in Sources */,
+				77D5E93A27A3434E00B1E20B /* PlayerView.swift in Sources */,
+				77D5FAF32799BF960062B09E /* OptionCell.swift in Sources */,
 				77DF05882798495D00E12EFA /* LibraryView.swift in Sources */,
 				77DF05782798445000E12EFA /* AppleMusicSwiftUIApp.swift in Sources */,
+				77D5FAF12799858E0062B09E /* OptionModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
