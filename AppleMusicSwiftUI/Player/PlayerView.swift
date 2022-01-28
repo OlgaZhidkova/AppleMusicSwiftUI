@@ -22,7 +22,7 @@ struct PlayerView: View {
                     .font(.body)
                     .foregroundColor(.primary)
                  
-                Spacer()
+                Spacer(minLength: 5)
                 
                 Button(action: {},
                        label: {

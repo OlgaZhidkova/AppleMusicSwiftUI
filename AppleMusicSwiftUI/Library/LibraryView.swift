@@ -17,14 +17,14 @@ struct LibraryView: View {
                         .transition(.asymmetric(insertion: .scale, removal: .opacity))
                 } else {
                     Text("Ищете свою музыку?")
-                        .font(.headline)
-                        .padding(.bottom, 7.0)
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .padding(.bottom, 1)
 
                     Text("Здесь появится купленная Вами в iTunes Store музыка.")
-                        .font(.subheadline)
                         .foregroundColor(Color.gray)
                         .multilineTextAlignment(.center)
-                        .padding(.horizontal, 70.0)
+                        .padding(.horizontal, 50)
                 }
             }
             .navigationTitle("Медиатека")

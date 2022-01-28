@@ -13,10 +13,14 @@ struct LibraryListView: View {
     @State var options = libraryList
    
     var body: some View {
-        
         List(selection: $selection) {
-            ForEach(options) { option in
-                LibraryListCell(option: option)
+            ForEach(options, id: \.self) { option in
+                HStack {
+                    Image(systemName: option.icon)
+                        .frame(width: 20, height: 20)
+                        .foregroundColor(.red)
+                    Text(option.title)
+                }
             }
             .onMove(perform: move)
             .listRowBackground(Color.white)
