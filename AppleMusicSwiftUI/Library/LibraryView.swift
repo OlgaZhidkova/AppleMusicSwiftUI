@@ -27,20 +27,14 @@ struct LibraryView: View {
                         .padding(.horizontal, 70.0)
                 }
             }
-            
             .navigationTitle("Медиатека")
-            .navigationBarItems(trailing:
-                                    Button(
-                                    action: { withAnimation {
-                                            showOptions.toggle()
-                                            }
-                                        }) {
-                                            if showOptions {
-                                                Text("Готово")
-                                            } else {
-                                                Text("Править")
-                                            }
-                                        })
+            .navigationBarItems(trailing: Button(action: {
+                withAnimation {
+                showOptions.toggle()
+                }
+            }) {
+                showOptions ? Text("Готово") : Text("Править")
+            })
         }
     }
 }

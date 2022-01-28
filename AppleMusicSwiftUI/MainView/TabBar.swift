@@ -8,30 +8,37 @@
 import SwiftUI
 
 struct TabBar: View {
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor.systemGray6
+      }
+    
     var body: some View {
-        TabView {
-            
+        ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom), content: {
+            TabView {
                 LibraryView()
-               
-            
-            .tabItem {
-                Image("music")
-                Text("Медиатека")
+                .tabItem {
+                    Image("music")
+                    Text("Медиатека")
+                }
+                
+                Text("Здесь будет Радио")
+                .tabItem {
+                    Image(systemName: "dot.radiowaves.left.and.right")
+                    Text("Радио")
+                }
+                
+                Text("Здесь будет Поиск")
+                .tabItem {
+                    Image(systemName: "magnifyingglass")
+                    Text("Поиск")
+                }
             }
+            .accentColor(.red)
             
-            Text("Здесь будет Радио")
-            .tabItem {
-                Image(systemName: "dot.radiowaves.left.and.right")
-                Text("Радио")
-            }
+            Spacer()
             
-            Text("Здесь будет Поиск")
-            .tabItem {
-                Image(systemName: "magnifyingglass")
-                Text("Поиск")
-            }
-        }
-        .accentColor(.red)
+            PlayerView()
+        })
     }
 }
 

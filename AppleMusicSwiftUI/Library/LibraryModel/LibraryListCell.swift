@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct OptionCell: View {
-    @State var option: OptionModel
+struct LibraryListCell: View {
+    @State var option: LibraryListModel
     
     var body: some View {
         HStack {
