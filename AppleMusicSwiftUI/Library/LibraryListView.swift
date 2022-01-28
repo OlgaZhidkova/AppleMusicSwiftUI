@@ -8,17 +8,11 @@
 import SwiftUI
 
 struct LibraryListView: View {
-    @State var selection = Set<UUID>()
-    @State var options = libraryOptions
+    
+    @State var selection: Set<LibraryListModel> = []
+    @State var options = libraryList
    
     var body: some View {
-        
-//        List(selection: $selection) {
-//                    ForEach(options) { option in
-//                        OptionCell(option: option)
-//                    }
-//                }
-
         List(selection: $selection) {
             ForEach(options, id: \.self) { option in
                 HStack {
@@ -28,29 +22,19 @@ struct LibraryListView: View {
                     Text(option.title)
                 }
             }
-//            .onMove(perform: { indeces, offset in
-//                withAnimation {
-//                    options.move(fromOffsets: indeces, toOffset: offset)
-//                }
-//            })
             .onMove(perform: move)
+            .listRowBackground(Color.white)
         }
-        
-        
         .environment(\.editMode, .constant(.active))
         .accentColor(.red)
+        
         .listStyle(.plain)
-        
-        
     }
     
-    func move(from source: IndexSet,
-              to destination: Int) {
-        self.options.move(fromOffsets: source,
-                          toOffset: destination)
+    func move(from source: IndexSet, to destination: Int) {
+        self.options.move(fromOffsets: source, toOffset: destination)
     }
 }
-
 
 struct MediaListView_Previews: PreviewProvider {
     static var previews: some View {
