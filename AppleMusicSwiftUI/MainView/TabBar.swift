@@ -8,16 +8,13 @@
 import SwiftUI
 
 struct TabBar: View {
-//    init() {
-//        UITabBar.appearance().backgroundColor = UIColor.systemGray6
-//      }
     
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom), content: {
             TabView {
                 LibraryView()
                 .tabItem {
-                    Image("music")
+                    Image(systemName: "music.note.house.fill")
                     Text("Медиатека")
                 }
                 
