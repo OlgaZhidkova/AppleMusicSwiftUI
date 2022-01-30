@@ -11,20 +11,28 @@ struct LibraryView: View {
     @State var showOptions = false
     var body: some View {
         NavigationView {
-            VStack {
-                if showOptions {
-                    LibraryListView()
-                        .transition(.asymmetric(insertion: .scale, removal: .opacity))
-                } else {
-                    Text("Ищете свою музыку?")
-                        .font(.title3)
-                        .fontWeight(.bold)
-                        .padding(.bottom, 1)
-
-                    Text("Здесь появится купленная Вами в iTunes Store музыка.")
-                        .foregroundColor(.secondary)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 50)
+            GeometryReader { geometry in
+                ScrollView(.vertical, showsIndicators: false) {
+                    if showOptions {
+                        LibraryListView()
+                            .transition(.asymmetric(
+                                insertion: .scale,
+                                removal: .opacity))
+                            .frame(width: geometry.size.width, height: geometry.size.height, alignment: .top)
+                    } else {
+                        VStack {
+                            Text("Ищете свою музыку?")
+                                .font(.title3)
+                                .fontWeight(.bold)
+                                .padding(.bottom, 1)
+                                
+                            Text("Здесь появится купленная Вами в iTunes Store музыка.")
+                                .foregroundColor(.secondary)
+                                .multilineTextAlignment(.center)
+                                .padding(.horizontal, 50)
+                        }
+                        .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
+                    }
                 }
             }
             .navigationTitle("Медиатека")
