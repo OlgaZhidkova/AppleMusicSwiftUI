@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct TabBar: View {
-    init() {
-        UITabBar.appearance().backgroundColor = UIColor.systemGray6
-      }
+//    init() {
+//        UITabBar.appearance().backgroundColor = UIColor.systemGray6
+//      }
     
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom), content: {
@@ -21,7 +21,7 @@ struct TabBar: View {
                     Text("Медиатека")
                 }
                 
-                Text("Здесь будет Радио")
+                RadioView()
                 .tabItem {
                     Image(systemName: "dot.radiowaves.left.and.right")
                     Text("Радио")

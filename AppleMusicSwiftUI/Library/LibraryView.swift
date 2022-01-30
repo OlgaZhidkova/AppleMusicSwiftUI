@@ -22,7 +22,7 @@ struct LibraryView: View {
                         .padding(.bottom, 1)
 
                     Text("Здесь появится купленная Вами в iTunes Store музыка.")
-                        .foregroundColor(Color.gray)
+                        .foregroundColor(.secondary)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 50)
                 }
