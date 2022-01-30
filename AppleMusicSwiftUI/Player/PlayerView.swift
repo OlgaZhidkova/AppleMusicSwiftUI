@@ -36,13 +36,14 @@ struct PlayerView: View {
                        label: {
                     Image(systemName: "forward.fill")
                         .font(.title2)
-                        .foregroundColor(.gray)
+                        .foregroundColor(.secondary)
                     }
                 )
             }
             .padding(.vertical, 10)
             .padding(.horizontal)
-            .background(Color(UIColor.systemGray6))
+            .background(BlurView())
+//            .background(Color(UIColor.systemGray6).opacity(0.99))
             
             Divider()
         }
