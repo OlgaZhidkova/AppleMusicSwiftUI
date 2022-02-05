@@ -24,7 +24,7 @@ struct TabBar: View {
                     Text("Радио")
                 }
                 
-                Text("Здесь будет Поиск")
+                SearchView()
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                     Text("Поиск")

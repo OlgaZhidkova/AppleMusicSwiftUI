@@ -12,7 +12,7 @@ struct RadioView: View {
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: true) {
-                SelectedStationView()
+                HighlightsView(items: selectedStatiions)
 
                 Text("Станции")
                     .font(.title2).bold()
@@ -21,6 +21,7 @@ struct RadioView: View {
                 
                 RadioStationView()
             }
+            .padding(.bottom, 80)
             .navigationTitle("Радио")
         }
     }
