@@ -19,7 +19,8 @@ struct LibraryView: View {
                                 insertion: .scale,
                                 removal: .opacity))
                             .frame(width: geometry.size.width, height: geometry.size.height, alignment: .top)
-                    } else {
+                    }
+                    else {
                         VStack {
                             Text("Ищете свою музыку?")
                                 .font(.title3)
