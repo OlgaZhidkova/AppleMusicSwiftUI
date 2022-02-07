@@ -9,6 +9,9 @@ import SwiftUI
 
 struct TabBar: View {
     
+    @State var expand = false
+    @Namespace var animation
+    
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom), content: {
             TabView {
@@ -34,7 +37,7 @@ struct TabBar: View {
             
             Spacer()
             
-            PlayerView()
+            PlayerView(animation: animation, expand: $expand)
         })
     }
 }
