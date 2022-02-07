@@ -26,7 +26,8 @@ struct SearchView: View {
                     ForEach(categories, id: \.self) { category in
                         NavigationLink(destination:
                                         SearchDetailView(category: category)
-                                        .navigationBarTitle(category.title)
+                                        .navigationTitle("")
+                                        .navigationBarTitleDisplayMode(.inline)
                         ) {
                             Image(category.image)
                                 .resizable()

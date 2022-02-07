@@ -13,19 +13,27 @@ struct SearchDetailView: View {
     
     var body: some View {
             ScrollView(.vertical, showsIndicators: true) {
-                HighlightsView(items: selectedMusic)
-
-                HStack {
-                    Text("Плейлисты")
-                        .font(.title2).bold()
+                VStack(spacing: 5) {
+                    Text(category.title)
+                        .font(.largeTitle).bold()
+                        .lineLimit(2)
                         .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal)
+                        
+                    HighlightsView(items: selectedMusic)
+
+                    HStack {
+                        Text("Плейлисты")
+                            .font(.title2).bold()
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        Button("См. все") {}
+                        .foregroundColor(.red)
+                    }
+                    .padding(.horizontal)
                     
-                    Button("См. все") {}
-                    .foregroundColor(.red)
+                    HorizontalPlaylistView(playlists: searchPlaylists)
                 }
-                .padding(.horizontal)
-                
-                HorizontalPlaylistView(playlists: searchPlaylists)
             }
             .padding(.bottom, 80)
     }
