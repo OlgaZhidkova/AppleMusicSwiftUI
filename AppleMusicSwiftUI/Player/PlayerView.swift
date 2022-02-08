@@ -180,6 +180,7 @@ struct PlayerView: View {
             .opacity(expand ? 1 : 0)
         }
         .frame(maxHeight: expand ? .infinity : 80)
+        .ignoresSafeArea(.keyboard)
         .background(
             VStack(spacing: 0) {
                 BlurView()
@@ -196,6 +197,7 @@ struct PlayerView: View {
         .offset(y: offset)
         .gesture(DragGesture().onEnded(onended(value: )).onChanged(onchanged(value: )))
         .ignoresSafeArea()
+        
     }
     
     // pull down Player
@@ -215,8 +217,3 @@ struct PlayerView: View {
     }
 }
 
-//struct PlayerView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PlayerView()
-//    }
-//}

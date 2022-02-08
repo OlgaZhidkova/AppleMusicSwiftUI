@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct RadioStationView: View {
+struct VerticalMusicListView: View {
     
-    @State var stations = radioStations
+    @State var items = [SmallPictureModel]()
     
     var columns = [
         GridItem(.flexible(), alignment: .leading)
@@ -17,17 +17,17 @@ struct RadioStationView: View {
     
     var body: some View {
         LazyVGrid(columns: columns) {
-            ForEach(stations, id: \.self) { station in
+            ForEach(items, id: \.self) { item in
                 HStack {
-                    Image(station.image)
+                    Image(item.image)
                         .resizable()
                         .frame(width: 100, height: 100, alignment: .leading)
                         .cornerRadius(5)
                     VStack {
-                        Text(station.name)
+                        Text(item.name)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .font(.headline)
-                        Text(station.description)
+                        Text(item.description)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .font(.subheadline)
                             .foregroundColor(.secondary)
@@ -41,8 +41,3 @@ struct RadioStationView: View {
     }
 }
 
-struct RadioStationView_Previews: PreviewProvider {
-    static var previews: some View {
-        RadioStationView()
-    }
-}

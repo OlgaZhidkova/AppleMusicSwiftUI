@@ -7,27 +7,27 @@
 
 import SwiftUI
 
-struct HorizontalPlaylistView: View {
-    @State var playlists = [SmallPictureModel]()
+struct HorizontalMusicListView: View {
+    @State var items = [SmallPictureModel]()
     
     let rows: [GridItem] = Array(repeating: .init(.fixed(220)), count: 2)
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHGrid(rows: rows) {
-                ForEach(playlists, id: \.self) { playlist in
+                ForEach(items, id: \.self) { item in
                     VStack {
-                        Image(playlist.image)
+                        Image(item.image)
                             .resizable()
                             .frame(width: 170, height: 170, alignment: .leading)
                             .cornerRadius(5)
                         
-                        Text(playlist.name)
+                        Text(item.name)
                             .frame(maxWidth: 170, alignment: .leading)
                             .lineLimit(1)
                             .font(.headline)
                         
-                        Text(playlist.description)
+                        Text(item.description)
                             .frame(maxWidth: 170, alignment: .leading)
                             .font(.subheadline)
                             .foregroundColor(.secondary)
@@ -40,8 +40,3 @@ struct HorizontalPlaylistView: View {
     }
 }
 
-//struct PlaylistView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HorizontalPlaylistView()
-//    }
-//}

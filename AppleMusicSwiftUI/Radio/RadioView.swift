@@ -19,7 +19,7 @@ struct RadioView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal)
                 
-                RadioStationView()
+                VerticalMusicListView(items: radioStations)
             }
             .padding(.bottom, 80)
             .navigationTitle("Радио")
