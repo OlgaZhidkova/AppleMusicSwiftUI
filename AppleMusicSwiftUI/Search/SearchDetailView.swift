@@ -35,7 +35,13 @@ struct SearchDetailView: View {
                     HorizontalMusicListView(items: musicPlaylists[category.tag])
                 }
             }
-            .padding(.bottom, 80)
+            .padding(.bottom, Metric.playerHeight)
+    }
+}
+
+extension SearchDetailView {
+    enum Metric {
+        static let playerHeight: CGFloat = 80
     }
 }
 

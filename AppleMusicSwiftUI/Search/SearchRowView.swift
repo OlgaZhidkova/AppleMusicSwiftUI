@@ -13,7 +13,7 @@ struct SearchRowView: View {
         HStack {
             Image(item.image)
                 .resizable()
-                .frame(width: 100, height: 100, alignment: .leading)
+                .frame(width: Metric.imageSize, height: Metric.imageSize, alignment: .leading)
                 .cornerRadius(5)
             VStack {
                 Text(item.name)
@@ -25,5 +25,11 @@ struct SearchRowView: View {
                     .foregroundColor(.secondary)
             }
         }
+    }
+}
+
+extension SearchRowView {
+    enum Metric {
+        static let imageSize: CGFloat = 100
     }
 }

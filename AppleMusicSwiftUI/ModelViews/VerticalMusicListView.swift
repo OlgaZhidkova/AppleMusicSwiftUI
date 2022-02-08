@@ -21,7 +21,7 @@ struct VerticalMusicListView: View {
                 HStack {
                     Image(item.image)
                         .resizable()
-                        .frame(width: 100, height: 100, alignment: .leading)
+                        .frame(width: Metric.imageSize, height: Metric.imageSize, alignment: .leading)
                         .cornerRadius(5)
                     VStack {
                         Text(item.name)
@@ -41,3 +41,8 @@ struct VerticalMusicListView: View {
     }
 }
 
+extension VerticalMusicListView {
+    enum Metric {
+        static let imageSize: CGFloat = 100
+    }
+}

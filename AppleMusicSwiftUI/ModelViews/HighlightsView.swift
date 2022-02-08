@@ -52,8 +52,3 @@ struct HighlightsView: View {
 }
 
 
-//struct StationView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HighlightsView()
-//    }
-//}
