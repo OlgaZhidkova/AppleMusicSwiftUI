@@ -10,7 +10,7 @@ import SwiftUI
 struct HorizontalMusicListView: View {
     @State var items = [SmallPictureModel]()
     
-    let rows: [GridItem] = Array(repeating: .init(.fixed(220)), count: 2)
+    let rows: [GridItem] = Array(repeating: .init(.fixed(Metric.rowHeight)), count: 2)
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -19,16 +19,16 @@ struct HorizontalMusicListView: View {
                     VStack {
                         Image(item.image)
                             .resizable()
-                            .frame(width: 170, height: 170, alignment: .leading)
+                            .frame(width: Metric.imageSize, height: Metric.imageSize, alignment: .leading)
                             .cornerRadius(5)
                         
                         Text(item.name)
-                            .frame(maxWidth: 170, alignment: .leading)
+                            .frame(maxWidth: Metric.imageSize, alignment: .leading)
                             .lineLimit(1)
                             .font(.headline)
                         
                         Text(item.description)
-                            .frame(maxWidth: 170, alignment: .leading)
+                            .frame(maxWidth: Metric.imageSize, alignment: .leading)
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                             .lineLimit(1)
@@ -40,3 +40,9 @@ struct HorizontalMusicListView: View {
     }
 }
 
+extension HorizontalMusicListView {
+    enum Metric {
+        static let imageSize: CGFloat = 170
+        static let rowHeight: CGFloat = 220
+    }
+}

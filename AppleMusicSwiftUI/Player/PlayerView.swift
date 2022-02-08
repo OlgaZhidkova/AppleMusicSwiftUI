@@ -25,13 +25,13 @@ struct PlayerView: View {
         VStack {
             Capsule()
                 .fill(Color.gray)
-                .frame(width: expand ? 60 : 0, height: expand ? 4 : 0)
+                .frame(width: expand ? Metric.capsuleWidth : 0, height: expand ? Metric.capsuleHeight : 0)
                 .opacity(expand ? 1 : 0)
                 .padding(.top, expand ? safeArea?.top : 0)
                 .padding(.vertical, expand ? 30 : 0)
             
             // mini Player
-            HStack(spacing: 15) {
+            HStack(spacing: Metric.regularSpacing) {
                 if expand {
                     Spacer()
                 }
@@ -39,7 +39,7 @@ struct PlayerView: View {
                 Image("elton")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: expand ? height : 55, height: expand ? height : 55)
+                    .frame(width: expand ? height : Metric.imageSize, height: expand ? height : Metric.imageSize)
                     .cornerRadius(7)
                     .shadow(radius: 2)
                 
@@ -82,8 +82,8 @@ struct PlayerView: View {
             .padding(.horizontal)
             
             // full screen Player
-            VStack(spacing: 15) {
-                Spacer(minLength: 0)
+            VStack(spacing: Metric.regularSpacing) {
+                Spacer()
                 
                 HStack {
                     if expand {
@@ -106,11 +106,11 @@ struct PlayerView: View {
                 HStack {
                     Capsule()
                         .fill(Color.secondary.opacity(0.2))
-                        .frame(height: 4)
+                        .frame(height: Metric.capsuleHeight)
                 }
                 .padding()
                 
-                HStack(spacing: 70) {
+                HStack(spacing: Metric.buttonsSpacing) {
                     Button(action: {},
                             label: {
                         Image(systemName: "backward.fill")
@@ -146,7 +146,7 @@ struct PlayerView: View {
                 
                 Spacer()
                 
-                HStack(spacing: 15) {
+                HStack(spacing: Metric.regularSpacing) {
                     Image(systemName: "speaker.fill")
                         .foregroundColor(.secondary)
                     Slider(value: $volume)
@@ -155,7 +155,7 @@ struct PlayerView: View {
                 }
                 .padding()
                 
-                HStack(spacing: 70) {
+                HStack(spacing: Metric.buttonsSpacing) {
                     Button(action: {}) {
                         Image(systemName: "quote.bubble")
                             .font(.title2)
@@ -179,7 +179,7 @@ struct PlayerView: View {
             .frame(height: expand ? nil : 0)
             .opacity(expand ? 1 : 0)
         }
-        .frame(maxHeight: expand ? .infinity : 80)
+        .frame(maxHeight: expand ? .infinity : Metric.playerHeight)
         .ignoresSafeArea(.keyboard)
         .background(
             VStack(spacing: 0) {
@@ -193,7 +193,7 @@ struct PlayerView: View {
             }
         )
         .cornerRadius(expand ? 20 : 0)
-        .offset(y: expand ? 0 : -48)
+        .offset(y: expand ? 0 : Metric.yOffset)
         .offset(y: offset)
         .gesture(DragGesture().onEnded(onended(value: )).onChanged(onchanged(value: )))
         .ignoresSafeArea()
@@ -217,3 +217,14 @@ struct PlayerView: View {
     }
 }
 
+extension PlayerView {
+    enum Metric {
+        static let imageSize: CGFloat = 55
+        static let playerHeight: CGFloat = 80
+        static let buttonsSpacing: CGFloat = 70
+        static let regularSpacing: CGFloat = 15
+        static let yOffset: CGFloat = -48
+        static let capsuleWidth: CGFloat = 60
+        static let capsuleHeight: CGFloat = 4
+    }
+}

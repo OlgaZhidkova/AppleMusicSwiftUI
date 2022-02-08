@@ -17,7 +17,7 @@ struct LibraryListView: View {
             ForEach(options, id: \.self) { option in
                 HStack {
                     Image(systemName: option.icon)
-                        .frame(width: 20, height: 20)
+                        .frame(width: Metric.imageSize, height: Metric.imageSize)
                         .foregroundColor(.red)
                     Text(option.title)
                 }
@@ -36,9 +36,17 @@ struct LibraryListView: View {
     }
 }
 
+extension LibraryListView {
+    enum Metric {
+        static let imageSize: CGFloat = 20
+    }
+}
+
 struct MediaListView_Previews: PreviewProvider {
     static var previews: some View {
         LibraryListView()
     }
 }
+
+
 

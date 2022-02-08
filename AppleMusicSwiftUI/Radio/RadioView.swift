@@ -21,9 +21,15 @@ struct RadioView: View {
                 
                 VerticalMusicListView(items: radioStations)
             }
-            .padding(.bottom, 80)
+            .padding(.bottom, Metric.playerHeight)
             .navigationTitle("Радио")
         }
+    }
+}
+
+extension RadioView {
+    enum Metric {
+        static let playerHeight: CGFloat = 80
     }
 }
 

@@ -38,14 +38,15 @@ struct SearchView: View {
                             Image(category.image)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 170, alignment: .leading)
+                                .frame(width: Metric.imageSize,
+                                       alignment: .leading)
                                 .cornerRadius(5)
                         }
                     }
                 }
             }
             .padding(.horizontal)
-            .padding(.bottom, 80)
+            .padding(.bottom, Metric.playerHeight)
             .navigationBarTitle("Поиск")
         }
         // Search field
@@ -72,6 +73,13 @@ struct SearchView: View {
                 }
             }
         }
+    }
+}
+
+extension SearchView {
+    enum Metric {
+        static let playerHeight: CGFloat = 80
+        static let imageSize: CGFloat = 170
     }
 }
 
