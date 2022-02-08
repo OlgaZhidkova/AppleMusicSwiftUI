@@ -12,12 +12,18 @@ struct SearchView: View {
     
     var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     
+    @State private var searchText = ""
+    
+    @State private var isEditing = false
+    
+    @State private var selectedIndex = 0
+    
+    @State var music = searchMusic
     
     var body: some View {
         NavigationView {
+            
             ScrollView(.vertical, showsIndicators: true) {
-                Divider()
-
                 Text("Поиск по категориям")
                     .font(.title2).bold()
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -40,7 +46,31 @@ struct SearchView: View {
             }
             .padding(.horizontal)
             .padding(.bottom, 80)
-            .navigationTitle("Поиск")
+            .navigationBarTitle("Поиск")
+        }
+        // Search field
+        .searchable(text: $searchText,
+                    prompt: "Артисты, песни, тексты и др.") {
+            
+            Picker("Search in", selection: $selectedIndex) {
+                Text("Apple Music").tag(0)
+                Text("Ваша Медиатека").tag(1)
+                }
+                .pickerStyle(.segmented)
+                .labelsHidden()
+            
+            VStack {
+                ForEach(music) { music in
+                    SearchRowView(item: music)
+                }
+            }
+            .onChange(of: searchText) { searchText in
+                if searchText != "" {
+                    music = searchMusic.filter{ $0.name.contains(searchText)}
+                } else {
+                    music = searchMusic
+                }
+            }
         }
     }
 }

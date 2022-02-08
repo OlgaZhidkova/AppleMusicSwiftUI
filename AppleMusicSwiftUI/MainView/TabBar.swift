@@ -38,7 +38,9 @@ struct TabBar: View {
             Spacer()
             
             PlayerView(animation: animation, expand: $expand)
+                
         })
+        .ignoresSafeArea(.keyboard)
     }
 }
 

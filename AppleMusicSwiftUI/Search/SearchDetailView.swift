@@ -20,7 +20,7 @@ struct SearchDetailView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal)
                         
-                    HighlightsView(items: selectedMusic)
+                    HighlightsView(items: selectedMusic[category.tag])
 
                     HStack {
                         Text("Плейлисты")
@@ -32,7 +32,7 @@ struct SearchDetailView: View {
                     }
                     .padding(.horizontal)
                     
-                    HorizontalPlaylistView(playlists: searchPlaylists)
+                    HorizontalMusicListView(items: musicPlaylists[category.tag])
                 }
             }
             .padding(.bottom, 80)
