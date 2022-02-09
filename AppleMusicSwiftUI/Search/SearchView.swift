@@ -22,32 +22,34 @@ struct SearchView: View {
     
     var body: some View {
         NavigationView {
-            
-            ScrollView(.vertical, showsIndicators: true) {
-                Text("Поиск по категориям")
-                    .font(.title2).bold()
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                
-                LazyVGrid(columns: columns) {
-                    ForEach(categories, id: \.self) { category in
-                        NavigationLink(destination:
-                                        SearchDetailView(category: category)
-                                        .navigationTitle("")
-                                        .navigationBarTitleDisplayMode(.inline)
-                        ) {
-                            Image(category.image)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: Metric.imageSize,
-                                       alignment: .leading)
-                                .cornerRadius(5)
+            GeometryReader { geometry in
+                ScrollView(.vertical, showsIndicators: true) {
+                    Text("Поиск по категориям")
+                        .font(.title2).bold()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    LazyVGrid(columns: columns) {
+                        ForEach(categories, id: \.self) { category in
+                            NavigationLink(destination:
+                                            SearchDetailView(category: category)
+                                            .navigationTitle("")
+                                            .navigationBarTitleDisplayMode(.inline)
+                            ) {
+                                Image(category.image)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: geometry.size.width / 2.3,
+                                           alignment: .leading)
+                                    .cornerRadius(5)
+                            }
                         }
                     }
                 }
+                .padding(.horizontal)
+                .padding(.bottom, Metric.playerHeight)
+                .navigationBarTitle("Поиск")
             }
-            .padding(.horizontal)
-            .padding(.bottom, Metric.playerHeight)
-            .navigationBarTitle("Поиск")
+            
         }
         // Search field
         .searchable(text: $searchText,
@@ -79,7 +81,6 @@ struct SearchView: View {
 extension SearchView {
     enum Metric {
         static let playerHeight: CGFloat = 80
-        static let imageSize: CGFloat = 170
     }
 }
 
