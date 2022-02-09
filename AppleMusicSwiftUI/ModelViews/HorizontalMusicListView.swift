@@ -25,7 +25,7 @@ struct HorizontalMusicListView: View {
                         Text(item.name)
                             .frame(maxWidth: Metric.imageSize, alignment: .leading)
                             .lineLimit(1)
-                            .font(.headline)
+                            .font(.subheadline)
                         
                         Text(item.description)
                             .frame(maxWidth: Metric.imageSize, alignment: .leading)
