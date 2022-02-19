@@ -24,11 +24,12 @@ struct SearchView: View {
         NavigationView {
             GeometryReader { geometry in
                 ScrollView(.vertical, showsIndicators: true) {
-                    Text("Поиск по категориям")
-                        .font(.title2).bold()
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    LazyVGrid(columns: columns) {
+                    VStack {
+                        Text("Поиск по категориям")
+                            .font(.title2).bold()
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        LazyVGrid(columns: columns) {
                         ForEach(categories, id: \.self) { category in
                             NavigationLink(destination:
                                             SearchDetailView(category: category)
@@ -46,14 +47,14 @@ struct SearchView: View {
                     }
                 }
                 .padding(.horizontal)
-                .padding(.bottom, Metric.playerHeight)
-                .navigationBarTitle("Поиск")
             }
-            
+            .padding(.bottom, Metric.playerHeight)
+            .navigationBarTitle("Поиск")
         }
-        // Search field
-        .searchable(text: $searchText,
-                    prompt: "Артисты, песни, тексты и др.") {
+    }
+    // Search field
+    .searchable(text: $searchText,
+                prompt: "Артисты, песни, тексты и др.") {
             
             Picker("Search in", selection: $selectedIndex) {
                 Text("Apple Music").tag(0)
